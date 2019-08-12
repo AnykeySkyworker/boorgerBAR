@@ -1,18 +1,18 @@
 main {
   font-family: sans-serif;
-  width: 1000px;
+  width: 600px;
   height: 100%;
   background: cornsilk;
   margin: 0 auto;
   border: 1px solid gray;
   border-radius: 10px;
   padding: 60px;
-  padding: 10px 30px 50px;
+  padding: 10px 15px 25px;
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
   color: coral;
 }
 
@@ -22,62 +22,32 @@ h2 {
   color: darkseagreen;
 }
 
-.sizeBlock {
+.sizeBlock,
+.contentBlock,
+.toppingBlock {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   border: 1px solid gray;
-  padding: 40px;
+  padding: 20px;
   border-radius: 20px;
 }
 
-.sizeBlock label {
-  font-size: 2em;
+label {
   padding: 10px 30px;
 }
 
-.sizeBlock label:hover {
+label:hover {
   cursor: pointer;
 }
 
-.sizeBlock input {
+input {
   display: none;
 }
 
-.sizeBlock input:checked + label {
-  border-radius: 30px;
-  border-radius: 30px;
-  background: darkseagreen;
-  color: antiquewhite;
-}
-
-.contentBlock {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  border: 1px solid gray;
-  padding: 40px;
-  border-radius: 20px;
-}
-
-.contentBlock label {
-  font-size: 2em;
-  padding: 10px 30px;
-}
-
-.contentBlock label:hover {
-  cursor: pointer;
-}
-
-.contentBlock input {
-  display: none;
-}
-
-.contentBlock input:checked + label {
+input:checked + label {
   border-radius: 30px;
   border-radius: 30px;
   background: darkseagreen;

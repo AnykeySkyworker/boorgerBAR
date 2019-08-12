@@ -8,8 +8,8 @@ class Hamburger {
         this.calories = '';
     }
     getSize() {              // Узнать размер гамбургера 
-        const sizeBtns = document.querySelectorAll('.sizeBtn') 
         let size = 'big';
+        const sizeBtns = document.querySelectorAll('.sizeBtn') 
         for (const sizeBtn of sizeBtns) {
             sizeBtn.addEventListener('click', () => {
                 if (sizeBtn.classList.contains('big')) {
@@ -23,33 +23,46 @@ class Hamburger {
         }
     }
 
-    addRemoveTopping() {    // Добавить-удалить добавку 
-        const contentBtns = document.querySelectorAll('.contentBtn');
-        let topping = [];
+    addStuffing() {
+        let stuffing;
+        const contentBtns = document.querySelectorAll('.contentBtn') 
         for (const contentBtn of contentBtns) {
-            contentBtn.addEventListener('click', () =>  {
-                if (!contentBtn.checked) {
-                    if (contentBtn.classList.contains('cheese')) {
-                        topping = topping.filter(val => val !== "cheese");
-                        console.log(topping);
-                    } else if (contentBtn.classList.contains('salad')) {
-                        topping = topping.filter(val => val !== "salad");
-                        console.log(topping);
-                    } else if (contentBtn.classList.contains('potato')) {
-                        topping = topping.filter(val => val !== "potato");
-                        console.log(topping);
-                    }
+            contentBtn.addEventListener('click', () => {
+                if (contentBtn.classList.contains('cheese')) {
+                    stuffing = "cheese";
+                    console.log(stuffing);
+                } else if (contentBtn.classList.contains('salad')) {
+                    stuffing = "salad";
+                    console.log(stuffing);
                 } else {
-                    if (contentBtn.classList.contains('cheese')) {
-                        topping[0] = 'cheese';
+                    stuffing = "potato";
+                    console.log(stuffing);
+                }
+            });
+        }
+    }
+
+    addRemoveTopping() {    // Добавить-удалить добавку 
+        const toppingBtns = document.querySelectorAll('.toppingBtn');
+        let topping = [];
+        for (const toppingBtn of toppingBtns) {
+            toppingBtn.addEventListener('click', () =>  {
+                if (!toppingBtn.checked) {
+                    if (toppingBtn.classList.contains('sauce')) {
+                        topping = topping.filter(val => val !== "sauce");
                         console.log(topping);
-                    } else if (contentBtn.classList.contains('salad')) {
-                        topping[1] = 'salad';
+                    } else if (toppingBtn.classList.contains('spice')) {
+                        topping = topping.filter(val => val !== "spice");
                         console.log(topping);
-                    } else if (contentBtn.classList.contains('potato')) {
-                        topping[2] = 'potato';
+                    } 
+                } else {
+                    if (toppingBtn.classList.contains('sauce')) {
+                        topping[0] = 'sauce';
                         console.log(topping);
-                    }                    
+                    } else if (toppingBtn.classList.contains('spice')) {
+                        topping[1] = 'spice';
+                        console.log(topping);
+                    }                
                 }                
             });            
         }
@@ -70,4 +83,5 @@ class Hamburger {
 let hamburger = new Hamburger;
 
 hamburger.addRemoveTopping()
-hamburger.get()
+hamburger.addStuffing()
+hamburger.getSize()

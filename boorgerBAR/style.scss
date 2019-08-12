@@ -1,19 +1,19 @@
 
 main {
     font-family: sans-serif;
-    width: 1000px;
+    width: 600px;
     height: 100%;
     background: cornsilk;
     margin: 0 auto;
     border: 1px solid gray;
     border-radius: 10px;
     padding: 60px;
-    padding: 10px 30px 50px;
+    padding: 10px 15px 25px;
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
     color: coral;
 }
 h2 {
@@ -22,53 +22,30 @@ h2 {
     color: darkseagreen;
 }
 
-.sizeBlock {
+.sizeBlock,
+.contentBlock,
+.toppingBlock {
     display: flex;
     justify-content: space-around;
     border: 1px solid gray;
-    padding: 40px;
+    padding: 20px;
     border-radius: 20px;
-
-    label {
-        font-size: 2em;
-        padding: 10px 30px;
-        &:hover {
-            cursor: pointer;
-        }
-    }
-
-    input {
-        display: none;
-        &:checked + label {
-            border-radius: 30px;
-            border-radius: 30px;
-            background: darkseagreen;
-            color: antiquewhite;
-        }
-    }
+ 
 }
 
-.contentBlock {
-    display: flex;
-    justify-content: space-around;
-    border: 1px solid gray;
-    padding: 40px;
-    border-radius: 20px;
-    label {
-        font-size: 2em;
-        padding: 10px 30px;
-        &:hover {
-            cursor: pointer;
-        }
+label {
+    // font-size: 2em;
+    padding: 10px 30px;
+    &:hover {
+        cursor: pointer;
     }
-
-    input {
-        display: none;
-        &:checked + label {
-            border-radius: 30px;
-            border-radius: 30px;
-            background: darkseagreen;
-            color: antiquewhite;
-        }
+}
+input {
+    display: none;
+    &:checked + label {
+        border-radius: 30px;
+        border-radius: 30px;
+        background: darkseagreen;
+        color: antiquewhite;
     }
 }
