@@ -35,6 +35,33 @@ h2 {
   border-radius: 20px;
 }
 
+.btnBlock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 25px 0 0;
+}
+
+.btnBlock button {
+  line-height: 3;
+  text-transform: uppercase;
+  padding: 0 20px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  background: #ff7f50;
+  color: #fff;
+}
+
+.btnBlock button:hover {
+  cursor: pointer;
+  background: #b9ffc5;
+  color: #ff7f50;
+}
+
 label {
   padding: 10px 30px;
 }

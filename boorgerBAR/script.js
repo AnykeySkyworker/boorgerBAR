@@ -1,14 +1,17 @@
-"use strict;"
+'use strict';
 
 class Hamburger {
-    constructor(size, stuffing) { 
+    
+    constructor(size, stuffing, topping, price, calories)  { 
         this.size = size;
         this.stuffing = stuffing;
-        this.price = '';
-        this.calories = '';
+        this.topping = topping;
+        this.price = price;
+        this.calories = calories;
     }
-    getSize() {              // Узнать размер гамбургера 
-        let size = 'big';
+    
+    getSize(size) {              
+        // let size;
         const sizeBtns = document.querySelectorAll('.sizeBtn') 
         for (const sizeBtn of sizeBtns) {
             sizeBtn.addEventListener('click', () => {
@@ -21,10 +24,11 @@ class Hamburger {
                 }
             });
         }
+        return this.size = size;
     }
 
-    addStuffing() {
-        let stuffing;
+    addStuffing(stuffing) {
+        // let stuffing;
         const contentBtns = document.querySelectorAll('.contentBtn') 
         for (const contentBtn of contentBtns) {
             contentBtn.addEventListener('click', () => {
@@ -40,11 +44,12 @@ class Hamburger {
                 }
             });
         }
+        return this.stuffing = stuffing;
     }
 
-    addRemoveTopping() {    // Добавить-удалить добавку 
+    addRemoveTopping(topping) {    // Добавить-удалить добавку 
+        topping = [];
         const toppingBtns = document.querySelectorAll('.toppingBtn');
-        let topping = [];
         for (const toppingBtn of toppingBtns) {
             toppingBtn.addEventListener('click', () =>  {
                 if (!toppingBtn.checked) {
@@ -57,31 +62,44 @@ class Hamburger {
                     } 
                 } else {
                     if (toppingBtn.classList.contains('sauce')) {
-                        topping[0] = 'sauce';
+                        topping.unshift('sauce');
                         console.log(topping);
                     } else if (toppingBtn.classList.contains('spice')) {
-                        topping[1] = 'spice';
+                        topping.push('spice');
                         console.log(topping);
                     }                
                 }                
             });            
         }
-        this.stuffing = topping;
+        return this.topping = topping;
     }
    
-    getStuffing() {          // Узнать начинку гамбургера 
-    
-    }
-    calculatePrice() {       // Узнать цену 
-    
-    }
-    calculateCalories() {    // Узнать калорийность 
-    
-    }
-  }
+    calculatePrice(price, topping, stuffing, size) { 
+        const btnCalcPrice = document.querySelector('.calcPrice');
+        price = 0;
+        btnCalcPrice.addEventListener('click', () => {
+       
+            if (this.size == 'big') {price += 100;} 
+            else if (this.size == 'small') {price += 50;}
 
-let hamburger = new Hamburger;
+            if (this.stuffing == 'cheese') {price += 10;}
+            else if (this.stuffing == 'salad') {price += 20;}
+            else if (this.stuffing == 'potato') {price += 15;}
+
+            if (this.topping == ['sauce']) {price += 20;}
+            else if (this.topping == ["spice"]) {price += 15;}
+            else if (this.topping == ["sauce", "spice"]) {price += 35;}
+            console.log(price);
+            return this.price;
+
+        });
+    }
+   
+}
+
+let hamburger = new Hamburger(size, stuffing, topping, price, calories);
 
 hamburger.addRemoveTopping()
 hamburger.addStuffing()
 hamburger.getSize()
+hamburger.calculatePrice()
