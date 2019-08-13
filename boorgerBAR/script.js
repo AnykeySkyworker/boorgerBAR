@@ -114,8 +114,12 @@ class Hamburger {
             else if (this.topping.join('') == ["spice"].join('')) {price += 15;}
             else if (this.topping.join('') == ["sauce", "spice"].join('')) {price += 35;}
             this.price = price;
+
+            document.querySelector('.display').innerHTML = `цена: ${price}р.`
             console.log(price);
             console.log(this.price);
+            price = 0;
+            this.price = price;
 
         });
     }
