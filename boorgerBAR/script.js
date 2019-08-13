@@ -8,75 +8,99 @@ class Hamburger {
         this.topping = topping;
         this.price = price;
         this.calories = calories;
+        this.calculatePrice(topping, stuffing, size);
     }
     
-    getSize(size) {              
-        // let size;
+    getSize() {       // Узнать размер       
+        let size = 'big';
+        this.size = size;
         const sizeBtns = document.querySelectorAll('.sizeBtn') 
         for (const sizeBtn of sizeBtns) {
             sizeBtn.addEventListener('click', () => {
                 if (sizeBtn.classList.contains('big')) {
                     size = "big";
+                    this.size = size;
                     console.log(size);
+                    console.log(this.size);
                 } else {
                     size = "small";
+                    this.size = size;
                     console.log(size);
+                    console.log(this.size);
                 }
             });
         }
-        return this.size = size;
     }
 
-    addStuffing(stuffing) {
-        // let stuffing;
+    addStuffing() {      // Добавить начинку
+        let stuffing = 'cheese';
+        this.stuffing = stuffing;
         const contentBtns = document.querySelectorAll('.contentBtn') 
         for (const contentBtn of contentBtns) {
             contentBtn.addEventListener('click', () => {
                 if (contentBtn.classList.contains('cheese')) {
                     stuffing = "cheese";
+                    this.stuffing = stuffing;
                     console.log(stuffing);
+                    console.log(this.stuffing);
                 } else if (contentBtn.classList.contains('salad')) {
                     stuffing = "salad";
+                    this.stuffing = stuffing;
                     console.log(stuffing);
+                    console.log(this.stuffing);
                 } else {
                     stuffing = "potato";
+                    this.stuffing = stuffing;
                     console.log(stuffing);
+                    console.log(this.stuffing);
                 }
             });
         }
-        return this.stuffing = stuffing;
     }
 
-    addRemoveTopping(topping) {    // Добавить-удалить добавку 
-        topping = [];
+    addRemoveTopping() {    // Добавить-удалить добавку 
+        let topping = ["sauce"];
+        this.topping = topping;
         const toppingBtns = document.querySelectorAll('.toppingBtn');
         for (const toppingBtn of toppingBtns) {
             toppingBtn.addEventListener('click', () =>  {
                 if (!toppingBtn.checked) {
                     if (toppingBtn.classList.contains('sauce')) {
-                        topping = topping.filter(val => val !== "sauce");
+                        topping = topping.filter(val => val !== 'sauce');
+                        this.topping = topping;
                         console.log(topping);
+                        console.log(this.topping);
                     } else if (toppingBtn.classList.contains('spice')) {
-                        topping = topping.filter(val => val !== "spice");
+                        topping = topping.filter(val => val !== 'spice');
+                        this.topping = topping;
                         console.log(topping);
+                        console.log(this.topping);
                     } 
                 } else {
                     if (toppingBtn.classList.contains('sauce')) {
                         topping.unshift('sauce');
+                        this.topping = topping;
                         console.log(topping);
+                        console.log(this.topping);
                     } else if (toppingBtn.classList.contains('spice')) {
                         topping.push('spice');
+                        this.topping = topping;
                         console.log(topping);
+                        console.log(this.topping);
                     }                
                 }                
             });            
         }
-        return this.topping = topping;
     }
    
-    calculatePrice(price, topping, stuffing, size) { 
+    calculatePrice(topping, stuffing, size) { 
         const btnCalcPrice = document.querySelector('.calcPrice');
-        price = 0;
+        let price = 0;
+
+        this.addRemoveTopping();
+        this.addStuffing();
+        this.getSize();
+      
         btnCalcPrice.addEventListener('click', () => {
        
             if (this.size == 'big') {price += 100;} 
@@ -86,20 +110,17 @@ class Hamburger {
             else if (this.stuffing == 'salad') {price += 20;}
             else if (this.stuffing == 'potato') {price += 15;}
 
-            if (this.topping == ['sauce']) {price += 20;}
-            else if (this.topping == ["spice"]) {price += 15;}
-            else if (this.topping == ["sauce", "spice"]) {price += 35;}
+            if (this.topping.join('') == ['sauce'].join('')) {price += 20;}
+            else if (this.topping.join('') == ["spice"].join('')) {price += 15;}
+            else if (this.topping.join('') == ["sauce", "spice"].join('')) {price += 35;}
+            this.price = price;
             console.log(price);
-            return this.price;
+            console.log(this.price);
 
         });
     }
    
 }
 
-let hamburger = new Hamburger(size, stuffing, topping, price, calories);
+let hamburger = new Hamburger();
 
-hamburger.addRemoveTopping()
-hamburger.addStuffing()
-hamburger.getSize()
-hamburger.calculatePrice()
