@@ -2,12 +2,11 @@
 
 class Hamburger {
     
-    constructor(size, stuffing, topping, price, calories)  { 
+    constructor(size, stuffing, topping, price)  { 
         this.size = size;
         this.stuffing = stuffing;
         this.topping = topping;
         this.price = price;
-        this.calories = calories;
         this.calculatePrice(topping, stuffing, size);
     }
     
@@ -20,13 +19,9 @@ class Hamburger {
                 if (sizeBtn.classList.contains('big')) {
                     size = "big";
                     this.size = size;
-                    console.log(size);
-                    console.log(this.size);
                 } else {
                     size = "small";
                     this.size = size;
-                    console.log(size);
-                    console.log(this.size);
                 }
             });
         }
@@ -41,18 +36,12 @@ class Hamburger {
                 if (contentBtn.classList.contains('cheese')) {
                     stuffing = "cheese";
                     this.stuffing = stuffing;
-                    console.log(stuffing);
-                    console.log(this.stuffing);
                 } else if (contentBtn.classList.contains('salad')) {
                     stuffing = "salad";
                     this.stuffing = stuffing;
-                    console.log(stuffing);
-                    console.log(this.stuffing);
                 } else {
                     stuffing = "potato";
                     this.stuffing = stuffing;
-                    console.log(stuffing);
-                    console.log(this.stuffing);
                 }
             });
         }
@@ -68,25 +57,17 @@ class Hamburger {
                     if (toppingBtn.classList.contains('sauce')) {
                         topping = topping.filter(val => val !== 'sauce');
                         this.topping = topping;
-                        console.log(topping);
-                        console.log(this.topping);
                     } else if (toppingBtn.classList.contains('spice')) {
                         topping = topping.filter(val => val !== 'spice');
                         this.topping = topping;
-                        console.log(topping);
-                        console.log(this.topping);
                     } 
                 } else {
                     if (toppingBtn.classList.contains('sauce')) {
                         topping.unshift('sauce');
                         this.topping = topping;
-                        console.log(topping);
-                        console.log(this.topping);
                     } else if (toppingBtn.classList.contains('spice')) {
                         topping.push('spice');
                         this.topping = topping;
-                        console.log(topping);
-                        console.log(this.topping);
                     }                
                 }                
             });            
@@ -116,14 +97,12 @@ class Hamburger {
             this.price = price;
 
             document.querySelector('.display').innerHTML = `цена: ${price}р.`
-            console.log(price);
-            console.log(this.price);
+
             price = 0;
             this.price = price;
-
         });
     }
-   
+
 }
 
 let hamburger = new Hamburger();
